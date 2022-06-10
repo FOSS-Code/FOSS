@@ -6,6 +6,19 @@
 
 FOSS is the anomaly-based network intrusion detection system which aims to achieve: (i) fine-grained unknown attack detection and (ii) ever-changing legitimate traffic adaptation. The architecture of FOSS mainly includes model construction, outlier detection & classification, and model update. This anonymous repository displays the corresponding source code for model implementation. 
 
+## Requirements
+
+```bash
+pip install scipy
+pip install numpy
+pip install pandas
+pip install tqdm
+pip install pyecharts
+pip install joblib
+pip install pickle
+pip install sklearn
+```
+
 ## Feature Extraction
 
 The feature extraction program is stored in ./overview/feature.py. 
@@ -16,9 +29,14 @@ python feature.py
 
 ## Model 
 
-The model architecture is stored in ./model/foss.py.
+The main function is stored in ./model/main_process.py.
+```bash
+python main_process.py
+```
 
 ## Evaluation
+
+The folder ./evaluation/monte_carlo/ shows the feature selection based on the weighted entropy in the Monte Carlo method. 
 
 The feature perception evaluation results for 8 types of attacks from IDS are shown in ./evaluation/feature_perception/. 	
 
