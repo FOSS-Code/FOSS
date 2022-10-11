@@ -2,10 +2,12 @@
 ## The defination of ACC and AMI
 
 For $n$ samples in a dataset, let $y_i$ be the class label for the $i$-th sample and $\hat{y}_i$ the predicted value. $ACC$ is used to find the best match between the class labels $y$ and the predicted labels $\hat{y}$, so it is defined by:
-$$ ACC(y, \hat{y}) = \max_{perm \in P} \frac{1}{n} \sum_{i=0}^{n-1} 1(perm(\hat{y}_i) = y_i) $$
+$$
+ACC(y, \hat{y}) = \max_{perm \in P} \frac{1}{n} \sum_{i=0}^{n-1} 1(perm(\hat{y}_i) = y_i)
+$$
 where $P$ is the set of all permutations in $[1,\cdots,K]$ and $K$ is the number of classes. $AMI$ removes feature bias by normalizing the Mutual Information ($MI$) between $y$ and $\hat{y}$ for the expected gain in entropy, as described below
 $$
-MI(y,\hat{y}) = \sum_{i=0}^{n-1} {\sum_{j=0}^{n-1} {p(y_i,\hat{y}_j)} } \log \left( {\frac{{p(y_i,\hat{y}_j)}}{{p(y_i)p(\hat{y}_j)}}} \right) \\
+MI(y,\hat{y}) = \sum_{i=0}^{n-1} {\sum_{j=0}^{n-1} {p(y_i,\hat{y}_j)} } \log \left( {\frac{{p(y_i,\hat{y}_j)}}{{p(y_i)p(\hat{y}_j)}}} \right)
 $$
 $$
 AMI(y,\hat{y}) = \frac{{MI(y,\hat{y}) - E[MI(y,\hat{y})]}}{{max(H(y),H(\hat{y})) - E[MI(y,\hat{y})]}}
